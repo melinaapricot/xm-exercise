@@ -1,0 +1,46 @@
+@use './variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: $color-text;
+  background: #201D27; ;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  font-size: $font-size-normal;
+  font-weight: $font-weight-normal;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+}
+
+h1, h2, h3 {
+  font-weight: $font-weight-normal;
+  font-size: 28px;
+  margin: 0;
+}
+
+a {
+  color: $color-text;
+}
+
+button {
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: $primary-green;
+  color: $color-text
+}
+
+p {
+  margin: 0;
+}
