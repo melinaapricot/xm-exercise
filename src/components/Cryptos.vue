@@ -2,7 +2,7 @@
     <section class="cryptos">
       <div class="cryptos__wrap">
         <div v-for="crypto in cryptos" :key="crypto.id">
-           <CryptoCard :currency-data="crypto" :img-link="`../assets/img/${crypto.symbol}.png`"/>
+           <CryptoWidget :currency-data="crypto" :img-link="`../assets/img/${crypto.symbol}.png`"/>
         </div>
       </div>
 
@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import CryptoCard from './CryptoCard.vue'
+import CryptoWidget from './CryptoWidget.vue'
 import type { Crypto } from '@/interfaces';
 
 const cryptos = ref<Array<Crypto>>([]);

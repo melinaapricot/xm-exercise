@@ -1,15 +1,15 @@
 <template>
-    <div class="card">
-        <div class="card__up">
-            <img :src="currencyLogo" class="card__logo" alt="Currency Logo">
-            <p class="card__acronym">{{ currencyData.symbol }}</p>
-            <span class="card__coin">{{ nameFotmatted }}</span>
+    <div class="widget">
+        <div class="widget__up">
+            <img :src="currencyLogo" class="widget__logo" alt="Currency Logo">
+            <p class="widget__acronym">{{ currencyData.symbol }}</p>
+            <span class="widget__coin">{{ nameFotmatted }}</span>
         </div>
-        <div class="card__down">
-            <p class="card__price">${{ currencyData.price_usd }}</p>
-            <span :class="{ 'card__percent': true, 'negative': isNegativePercent}">
-                <FontAwesomeIcon class="card__arrow" v-if="isNegativePercent" icon="fa-circle-chevron-down" />
-                <FontAwesomeIcon class="card__arrow" v-else icon="fa-circle-chevron-up" />
+        <div class="widget__down">
+            <p class="widget__price">${{ currencyData.price_usd }}</p>
+            <span :class="{ 'widget__percent': true, 'negative': isNegativePercent}">
+                <FontAwesomeIcon class="widget__arrow" v-if="isNegativePercent" icon="fa-circle-chevron-down" />
+                <FontAwesomeIcon class="widget__arrow" v-else icon="fa-circle-chevron-up" />
                 {{ currencyData.percent_change_24h }}%
 
             </span>
@@ -44,7 +44,7 @@ console.log('hello')
 
 </script>
 <style scoped lang="scss">
-.card {
+.widget {
     width: 235px;
     height: 135px;
     border: 1px solid rgba(167, 167, 167, 0.20);
