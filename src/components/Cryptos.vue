@@ -46,12 +46,12 @@ fetchCryptoData();
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 25px;
     justify-content: center;
     align-items: center;
+    gap: 18px;
 
     @media (min-width: 768px) {
-
+      margin-bottom: 40px;
     }
 
     @media (min-width: 1200px) {
