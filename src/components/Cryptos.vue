@@ -2,7 +2,7 @@
     <section class="cryptos">
       <div class="cryptos__wrap">
         <div v-for="crypto in cryptos" :key="crypto.id">
-           <CryptoCard :data="crypto" />
+           <CryptoCard :currency-data="crypto" :img-link="`../assets/img/${crypto.symbol}.png`"/>
         </div>
       </div>
 
@@ -16,13 +16,20 @@ import type { Crypto } from '@/interfaces';
 
 const cryptos = ref<Array<Crypto>>([]);
 
-const url = 'https://api.coinlore.net/api/tickers/?start=0&limit=10';
+const url = 'https://api.coinlore.net/api/tickers/?start=0&limit=19';
 
 async function fetchCryptoData() {
   try {
     const response = await fetch(url);
     const allData = await response.json();
-    cryptos.value = allData.data;
+    const currencies = allData.data;
+    cryptos.value = [
+      currencies[0],
+      currencies[1],
+      currencies[7],
+      currencies[17],
+      currencies[18]
+    ];
   } catch (error) {
     console.error('Error', error);
   }
@@ -38,9 +45,18 @@ fetchCryptoData();
   &__wrap {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 25px;
     justify-content: center;
+    align-items: center;
 
+    @media (min-width: 768px) {
+
+    }
+
+    @media (min-width: 1200px) {
+
+}
   }
 }
 </style>
