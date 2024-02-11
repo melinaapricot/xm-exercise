@@ -17,7 +17,6 @@ const props = defineProps<{
     iconAlt: string,
 }>()
 
-
 </script>
 
 <style scoped lang="scss">
@@ -50,14 +49,15 @@ const props = defineProps<{
     }
 
     &__text {
-        width: 85%;
+        margin: 0;
+        width: 87%;
         text-align: left;
     }
 
 
     &__divider {
         border-bottom: 2px solid var(--primary-green);
-        margin: 20px 0;
+        margin: 15px 0;
         width: 50px;
     }
 
@@ -66,8 +66,12 @@ const props = defineProps<{
 
         &__title {
             font-size: 25px;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 30px;
+        }
+
+        &__divider {
+            margin: 5px 0;
         }
 
         &__header {
@@ -76,14 +80,11 @@ const props = defineProps<{
     }
 
         &__icon {
-        height: 85px;
-        }
-
-        &__divider {
-            margin: 15px 0 15px;
+            height: 85px;
         }
 
         &__text {
+            margin-top: 8px;
             width: 70%;
             text-align: left;
         }
@@ -102,14 +103,14 @@ const props = defineProps<{
         }
 
         &__divider {
-            margin: 17px 0 17px;
+            margin: 17px 0;
         }
 
         &__text {
+            margin-top: unset;
             font-size: var(--font-size-normal);
             width: 90%;
         }
-
     }
 }
 

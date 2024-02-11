@@ -21,7 +21,7 @@
     </section> 
 </template>
 <script lang="ts" setup>
-import TradingBenefitsCard from '@/TradingBenefitsCard.vue';
+import TradingBenefitsCard from '@/components/TradingBenefitsCard.vue';
 
 const cardContent = [
     {
