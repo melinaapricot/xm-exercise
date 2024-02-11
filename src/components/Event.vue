@@ -77,12 +77,13 @@
         }
 
         &__details {
+            border-bottom: unset;
             border-right: 1px solid white;
             padding-bottom: unset;
             justify-content: center;
             align-items: center;
             height: 100%;
-            width: 179px;
+            width: 217px;
         }
 
         &__details:last-of-type {
