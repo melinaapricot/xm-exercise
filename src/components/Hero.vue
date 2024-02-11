@@ -29,7 +29,7 @@
 
     &__wrap {
         margin-top: 83px;
-        margin-bottom: 83px;
+        margin-bottom: 100px;
         max-width: 500px;
         padding: 0 15px;
     }
@@ -37,7 +37,7 @@
     &__pre-title {
         width: 100%;
         display: block;
-        font-size: 14px;
+        font-size: var(--font-size-small);
         text-align: center; 
         color: #ddd;
         line-height: 246.875%;
@@ -54,21 +54,21 @@
     }
 
     &__subtitle, &__demo {
-        font-size: 14px;
+        font-size: var(--font-size-small);
     }
 
     &__disclaimer {
         margin-top: 15px;
-        font-size: 12px;
+        font-size: var(--font-size-tiny);
         line-height: 18px;
         small {
-            color:#D51820;
+            color: var(--color-red);
         }
     }
 
     &__red-link {
         text-decoration: none;
-        color: #D51820;
+        color: var(--color-red);
         cursor: pointer
     }
 
@@ -111,7 +111,7 @@
         }
 
         &__subtitle {
-            font-size: 16px;
+            font-size: var(--font-size-normal);
         }
 
         &__wrap {

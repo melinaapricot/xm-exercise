@@ -2,7 +2,7 @@
     <section class="cryptos">
       <div class="cryptos__wrap">
         <div v-for="crypto in cryptos" :key="crypto.id">
-           <CryptoWidget :currency-data="crypto" :img-link="`../assets/img/${crypto.symbol}.png`"/>
+           <CryptoWidget :currency-data="crypto" />
         </div>
       </div>
 
@@ -48,15 +48,12 @@ fetchCryptoData();
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 70px;
     gap: 18px;
 
-    @media (min-width: 768px) {
-      margin-bottom: 40px;
-    }
-
     @media (min-width: 1200px) {
-
-}
+      margin-bottom: 90px;
+    }
   }
 }
 </style>

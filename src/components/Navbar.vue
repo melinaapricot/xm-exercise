@@ -50,7 +50,7 @@
 
         &__link {
             text-decoration: none;
-            color: #fff;
+            color: var(--color-text);
             font-size: 15px;
         }
     }

@@ -23,7 +23,6 @@ import { computed, onMounted } from 'vue';
 
 const props = defineProps<{
     currencyData: Crypto,
-    imgLink: string,
 }>()
 
 const currencyLogo = computed(() => {
@@ -52,7 +51,7 @@ console.log('hello')
     background: rgba(140, 140, 140, 0.10); 
     padding: 12px 15px;
     display: block;
-    margin-bottom: 33px;
+    margin-bottom: 20px;
 
     &__up, 
     &__down {
@@ -74,7 +73,7 @@ console.log('hello')
     }
 
     &__acronym {
-        font-weight: 500;
+        font-weight: var(--font-weight-bold);
     }
 
     &__coin {
@@ -82,7 +81,7 @@ console.log('hello')
         display: inline-flex;
         align-items: center;
         height: fit-content;
-        font-weight: 500;
+        font-weight: var(--font-weight-bold);
         background-color: #f4eccd;
         border-radius: 8px;
         padding: 3px 5px;
@@ -97,12 +96,12 @@ console.log('hello')
     &__price {
         margin-top: 14px;
         font-size: 18px;
-        font-weight: 700;
+        font-weight: var(--font-weight-extra-bold);
     }
 
     &__percent {
         color: #B1FFC2;
-        font-size: 12px;
+        font-size: var(--font-size-tiny);
         &.negative {
             color: #FFA3A6;
 
@@ -122,7 +121,7 @@ console.log('hello')
         } 
     }
 
-    @media (min-width: 1200) {
+    @media (min-width: 1200px) {
         height: 135px;
 
         &__logo {

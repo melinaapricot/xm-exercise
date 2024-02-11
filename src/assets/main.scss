@@ -1,20 +1,44 @@
-@use './variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+
+  // Font sizes
+  --font-size-tiny: 12px;
+  --font-size-small: 14px;
+  --font-size-normal: 16px;
+  --font-size-large: 18px;
+
+  // Font weights
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 500;
+  --font-weight-extra-bold: 700;
+
+  // Colours
+  --color-text: #fff;
+  --color-red: #D51820;
+  --primary-green: #29A643;
+
+  // Breakpoints
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1200px;
+
+  }
 
 
 body {
   margin: 0;
   min-height: 100vh;
-  color: $color-text;
+  color: var(--color-text);
   background: #201D27; ;
   transition:
     color 0.5s,
     background-color 0.5s;
   line-height: 1.6;
   font-family: 'Roboto', sans-serif;
-  font-size: $font-size-normal;
-  font-weight: $font-weight-normal;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,23 +46,23 @@ body {
 
 #app {
   margin: 0 auto;
-  font-weight: normal;
+  font-weight: var(--font-weight-normal);
 }
 
 h1, h2, h3 {
-  font-weight: $font-weight-normal;
+  font-weight: var(--font-weight-normal);
   font-size: 28px;
   margin: 0;
 }
 
 a {
-  color: $color-text;
+  color: var(--color-text);
 }
 
 button {
   font-family: 'Bebas Neue', sans-serif;
-  background-color: $primary-green;
-  color: $color-text
+  background-color: var(--primary-green);
+  color: var(--color-text)
 }
 
 p {
