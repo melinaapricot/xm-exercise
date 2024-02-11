@@ -60,9 +60,11 @@ const cardContent = [
     margin: auto;
     text-align: center;
     padding: 0 6%;
+    margin-bottom: var(--section-margin-bottom);
+
 
     &__title {
-        font-size: 32px;
+        font-size: var(--font-size-headline);
         font-weight: var(--font-weight-light);
         padding: 0 40px;
         line-height: 43px;
@@ -87,7 +89,6 @@ const cardContent = [
 
     &__cards-wrap {
         margin-top: 60px;
-        margin-bottom: 70px;
         display: grid;
         width: 100%;
         grid-template-columns: 1fr;
@@ -122,12 +123,13 @@ const cardContent = [
     }
 
     @media (min-width: 1200px) {
+        margin-bottom: var(--section-margin-bottom-medium);
+
         &__cards-wrap {
             max-width: 1020px;
             margin-top: 32px;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            margin-bottom: 80px;
         }
         &__card:nth-of-type(1) { 
             grid-area: 1 / 1 / 3 / 2;

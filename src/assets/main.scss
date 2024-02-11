@@ -8,6 +8,7 @@
   --font-size-small: 14px;
   --font-size-normal: 16px;
   --font-size-large: 18px;
+  --font-size-headline: 35px;
 
   // Font weights
   --font-weight-light: 300;
@@ -19,6 +20,20 @@
   --color-text: #fff;
   --color-red: #D51820;
   --primary-green: #29A643;
+
+  // Margins
+  --section-margin-bottom: 70px;
+  --section-margin-bottom-medium: 81px;
+  --section-margin-bottom-large: 90px;
+
+  // Hero-banner (top) section margins
+  --section-margin-bottom-xl: 100px;
+  --section-margin-bottom-xl-tablet: 125px;
+  --section-margin-bottom-xl-desktop: 195px;
+
+
+
+
 
   // Breakpoints
   --breakpoint-tablet: 768px;

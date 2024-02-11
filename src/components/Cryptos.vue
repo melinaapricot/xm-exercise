@@ -42,17 +42,19 @@ fetchCryptoData();
 <style lang="scss">
 
 .cryptos {
+
+  margin-bottom: var(--section-margin-bottom);
+
   &__wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-bottom: 70px;
     gap: 18px;
 
     @media (min-width: 1200px) {
-      margin-bottom: 90px;
+      margin-bottom: var(--section-margin-bottom-large);
     }
   }
 }

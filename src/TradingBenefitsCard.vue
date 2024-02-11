@@ -94,7 +94,7 @@ const props = defineProps<{
         height: 249px;
 
         &__title {
-            margin-bottom: unset;
+            margin-bottom: 0;
         }
 
         &__icon {

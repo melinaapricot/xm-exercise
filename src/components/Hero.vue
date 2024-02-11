@@ -26,10 +26,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: var(--section-margin-bottom-xl);
+
 
     &__wrap {
         margin-top: 83px;
-        margin-bottom: 100px;
         max-width: 500px;
         padding: 0 15px;
     }
@@ -86,9 +87,9 @@
     }
 
     @media (min-width: 768px) {
-
+        margin-bottom: var(--section-margin-bottom-xl-tablet);
         &__wrap {
-            margin: 100px auto;
+            margin: 100px auto 0;
         }
 
         &__pre-title, &__title, &__subtitle, &__button {
@@ -101,13 +102,13 @@
     }
 
     @media (min-width: 1200px) {
-
+        margin-bottom: var( --section-margin-bottom-xl-desktop);
         &__title, &__subtitle, &__button {
             margin-bottom: 30px;
         }
 
         &__title {
-            font-size: 36px;
+            font-size: var(--font-size-headline);
         }
 
         &__subtitle {
