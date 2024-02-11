@@ -5,7 +5,7 @@
             <img class="card__icon" :src="props.iconSrc" :alt="props.iconAlt">
         </div>
         <div class="card__divider"></div>
-        <p class="card__text" v-html="$props.text"> </p>
+        <p class="card__text" v-html="props.text"> </p>
      </div>
 </template>
 
@@ -25,7 +25,7 @@ const props = defineProps<{
 
 .card {
         background-color: #000;
-        height: 235px; 
+        height: 220px; 
         border-radius: 10px;
         padding: 18px 30px;
         display: flex;
@@ -62,8 +62,25 @@ const props = defineProps<{
     }
 
     @media(min-width: 768px) {
+        height: 200px;
+
+        &__title {
+            font-size: 25px;
+            margin-bottom: 12px;
+            line-height: 30px;
+        }
+
+        &__header {
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+        &__icon {
+        height: 85px;
+        }
+
         &__divider {
-            margin: 10px 0 25px;
+            margin: 15px 0 15px;
         }
 
         &__text {
@@ -73,8 +90,24 @@ const props = defineProps<{
     }
 
     @media(min-width: 1200px) {
+        padding: 25px 25px 0 45px;
+        height: 249px;
+
+        &__title {
+            margin-bottom: unset;
+        }
+
+        &__icon {
+            height: 71px;
+        }
+
         &__divider {
-            margin: 25px 0 25px;
+            margin: 17px 0 17px;
+        }
+
+        &__text {
+            font-size: var(--font-size-normal);
+            width: 90%;
         }
 
     }

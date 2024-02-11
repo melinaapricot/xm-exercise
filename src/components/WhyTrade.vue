@@ -27,25 +27,25 @@ const cardContent = [
     {
         title: 'Superior Trade Execution',
         text: '<b>99%</b> of trades are executed in <b>less than a second</b>, with no requotes or rejections.',
-        iconSrc: 'src/assets/img/fast-execusion-icon.png',
+        iconSrc: '/src/assets/img/fast-execusion-icon.png',
         iconAlt:'Fast execution symbolic icon',
     },
     {
         title: 'Competitive Pricing',
         text: 'We offer some of the <b>lowest spreads</b>  and we don’t charge commissions.',
-        iconSrc: 'src/assets/img/competitive-pricing-icon.png',
+        iconSrc: '/src/assets/img/competitive-pricing-icon.png',
         iconAlt:'Competitive pricing symbolic icon',
     },
     {
         title: 'Advanced Technology',
         text: 'Trade on <b>MT4</b> or <b>MT5</b> , with expert tools, across desktop, web and mobile',
-        iconSrc: 'src/assets/img/tech-icon.png',
+        iconSrc: '/src/assets/img/tech-icon.png',
         iconAlt:'Advanced technology symbolic icon',
     },
     {
         title: 'Start with $5',
         text: 'Start trading your preferred instruments with as little as a <b>$5 minimum deposit.</b>',
-        iconSrc: 'src/assets/img/dollar-icon.png',
+        iconSrc: '/src/assets/img/dollar-icon.png',
         iconAlt:'Dollar icon',
     }
 ]
@@ -119,12 +119,11 @@ const cardContent = [
             max-width: 642px;
             line-height: 22px;
         }
-
     }
 
     @media (min-width: 1200px) {
         &__cards-wrap {
-            max-width: 1016px;
+            max-width: 1020px;
             margin-top: 32px;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(2, 1fr);
@@ -132,10 +131,38 @@ const cardContent = [
         }
         &__card:nth-of-type(1) { 
             grid-area: 1 / 1 / 3 / 2;
-            height: 527px;
+            height: 543px;
+            position: relative;
+
+            :deep(.card__header) {
+                margin-top: 30px;
+            }
+            :deep(.card__icon) {
+                position: absolute;
+                bottom: 37px;
+                left: 42px;
+                height: 203px;
+            }
         }
         &__card:nth-of-type(2) { 
             grid-area: 1 / 2 / 2 / 4;
+            :deep(.card__header) {
+                align-items: end;
+            }
+
+            :deep(.card__text) {
+                max-width: 70%;
+            }
+
+            :deep(.card__title) {
+                max-width: 212px;
+            }
+
+            :deep(.card__icon) {
+                height: 90px;
+            }
+
+            
         }
         &__card:nth-of-type(3) { 
             grid-area: 2 / 2 / 3 / 3;
