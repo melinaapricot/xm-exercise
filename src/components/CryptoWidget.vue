@@ -26,7 +26,7 @@ const props = defineProps<{
 }>()
 
 const currencyLogo = computed(() => {
-    return `../../public/img/${props.currencyData.symbol}.png`
+    return `/public/img/${props.currencyData.symbol}.png`
 })
 
 const nameFotmatted = computed(() => {
@@ -35,10 +35,6 @@ const nameFotmatted = computed(() => {
 
 const isNegativePercent = computed(() => {
    return Number(props.currencyData.percent_change_24h) < 0;
-})
-
-onMounted(() => {
-console.log('hello')
 })
 
 </script>
