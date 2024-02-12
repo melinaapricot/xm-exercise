@@ -3,12 +3,13 @@
         <h2 class="register__title">- Register Here -</h2>
         <p class="register__subtitle">Join us to celebrate our biggest night of the year.</p>
         <Event />
-        <RegistrationForm></RegistrationForm>
+        <RegistrationForm />
     </section>
 </template>
 
 <script setup lang="ts">
 import Event from './Event.vue';
+import RegistrationForm from './RegistrationForm.vue';
 </script>
 
 <style lang="scss" scoped>

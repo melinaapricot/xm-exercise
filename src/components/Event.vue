@@ -1,5 +1,5 @@
 <template>
-   <div class="event__wrap">
+   <div class="event">
         <div class="event__details">
             <div class="event__inner-wrap">
                 <FontAwesomeIcon class="event__icon" icon="fa-regular fa-calendar-check" />
@@ -28,11 +28,10 @@
 <style scoped lang="scss">
 
 .event {
-    &__wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }  
+    margin-bottom: var(--section-margin-bottom);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     
     &__icon {
         font-size: 26px;
@@ -66,15 +65,14 @@
     }
 
     @media (min-width: 768px) {
-        &__wrap {
-            flex-direction: row;
-            gap: 0;
-            border-top: 1px solid white;
-            border-bottom: 1px solid white;
-            height: 137px;
-            align-items: center;
-            max-width: 656px;
-        }
+        flex-direction: row;
+        gap: 0;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        height: 137px;
+        align-items: center;
+        max-width: 656px;
+    
 
         &__details {
             border-bottom: unset;
