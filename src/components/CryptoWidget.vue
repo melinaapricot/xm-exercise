@@ -19,14 +19,14 @@
 
 <script lang="ts" setup>
 import type { Crypto } from '@/interfaces';
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 
 const props = defineProps<{
     currencyData: Crypto,
 }>()
 
 const currencyLogo = computed(() => {
-    return `/public/img/${props.currencyData.symbol}.png`
+    return `/src/assets/img/${props.currencyData.symbol}.png`
 })
 
 const nameFotmatted = computed(() => {
