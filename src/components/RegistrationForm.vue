@@ -4,11 +4,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import ValidationFirstStep from './ValidationFirstStep.vue';
 import ValidationSecondStep from './ValidationSecondStep.vue';
+import { useMediaQuery } from '@vueuse/core';
 
-const firstStepComplete = ref(false)
+const firstStepComplete = ref(false);
+
+
+const isDesktop = useMediaQuery('(min-width: 1200px)')
+
+watch(isDesktop, () => {
+    console.log(isDesktop)
+})
 </script>
 <style scoped lang="scss">
 .registration-form {

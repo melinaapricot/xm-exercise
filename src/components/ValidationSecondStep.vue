@@ -1,11 +1,12 @@
 
 <template>
     <form class="registration-form" @submit.prevent="submitForm">
+        <Stepper :can-continue="canContinue" :active="v$.$anyDirty"/>
         <div v-if="!formSubmitted">
-            <BaseInput v-model="formDataStep2.eMail" input-type="email" label="Email" @update:modelValue="v$.eMail.$validate"/>
-                <span class="registration-form__error" v-for="error in v$.eMail.$errors" :key="error.$uid">{{ error.$message }}</span>
+            <BaseInput v-model="formDataStep2.eMail" :valid-state="v$.eMail.$dirty && (v$.eMail.$errors.length <= 0)" :error-state="v$.eMail.$dirty && (v$.eMail.$errors.length > 0)" input-type="email" label="Email" @update:modelValue="v$.eMail.$validate"/>
+            <span class="registration-form__error" v-for="error in v$.eMail.$errors" :key="error.$uid">{{ error.$message }}</span>
 
-            <BaseInput v-model="formDataStep2.password" input-type="password" label="Password" @update:modelValue="v$.password.$validate"></BaseInput>
+            <BaseInput v-model="formDataStep2.password" :valid-state="v$.password.$dirty && (v$.password.$errors.length <= 0)" :error-state="v$.password.$dirty && (v$.password.$errors.length > 0)" input-type="password" label="Password" @update:modelValue="v$.password.$validate"></BaseInput>
             <span class="registration-form__error" v-for="error in v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
 
             <button class="registration-form__btn" type="submit" :disabled="!canContinue">REGISTER NOW</button>
@@ -19,6 +20,7 @@
 
 <script setup lang="ts">
 import BaseInput from './BaseInput.vue';
+import Stepper from './Stepper.vue'
 import useVuelidate from '@vuelidate/core';
 import { required, email, minLength, maxLength, helpers } from '@vuelidate/validators';
 import { reactive, ref, computed, watch } from 'vue';
@@ -46,7 +48,11 @@ const passwordValidator = {
     oneOrMoreUpperCase: helpers.withMessage(() => '1 or more uppercase letters', function(value: string):boolean {
         return /[A-Z]+/.test(value);
     }),
+    oneOrMoreSpecialChars: helpers.withMessage(() => "1 or more special characters (#[]()@$&*!?|,.^/\\+_-)", function(value: string):boolean {
+        return /[#[\]()@$&*!?|,.^+_-]+/.test(value);
+    }),
 }
+
 
 const rules = computed(() => {
     return {
@@ -59,18 +65,16 @@ const rules = computed(() => {
         },
     }
 })
+const v$ = useVuelidate(rules, formDataStep2);
 
 watch(formDataStep2, () => {
     if( !v$.value.eMail.$invalid && !v$.value.password.$invalid) {
         canContinue.value = true;
     } else canContinue.value = false;
-
 })
-const v$ = useVuelidate(rules, formDataStep2);
 
 const submitForm = async () => {
     const result = await v$.value.$validate();
-    console.log('FORM SUBMITTED', formDataStep2)
 
     if (result) {
         formSubmitted.value = true;
@@ -87,12 +91,26 @@ const submitForm = async () => {
 .registration-form {
     text-align: left;
     &__error {
-        color: red;
+        color: var(--color-red);
         display: flex;
         flex-direction: column;
     }
+
+    &__btn {
+        margin-top: 30px;
+        width: 290px;
+        text-decoration: none;
+        border: none;
+        height: 40px;
+        display: inline-block;
+        text-align: center;
+        font-size: 24px;
+        padding: 6px;
+        cursor: pointer;
+    }
+
     &__btn:disabled {
-        background-color: gray;
+        background-color: #cccccc;
     }
 }
 
