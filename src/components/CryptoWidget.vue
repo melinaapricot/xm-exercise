@@ -25,9 +25,7 @@ const props = defineProps<{
     currencyData: Crypto,
 }>()
 
-const currencyLogo = computed(() => {
-    return `/src/assets/img/${props.currencyData.symbol}.png`
-})
+const currencyLogo = new URL(`../assets/img/${props.currencyData.symbol}.svg`, import.meta.url).href;
 
 const nameFotmatted = computed(() => {
     return props.currencyData.nameid.toUpperCase().replace(/-/, " ")
