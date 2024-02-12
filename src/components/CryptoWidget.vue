@@ -26,7 +26,7 @@ const props = defineProps<{
 }>()
 
 const currencyLogo = computed(() => {
-    return `/src/assets/img/${props.currencyData.symbol}.png`
+    return `../../public/img/${props.currencyData.symbol}.png`
 })
 
 const nameFotmatted = computed(() => {

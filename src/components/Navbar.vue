@@ -1,6 +1,6 @@
 <template>
     <header class="navbar">
-        <img src="../assets/img/XMLogo.svg" alt="Company Logo" class="navbar__logo">
+        <img src="../../public/img/XMLogo.svg" alt="Company Logo" class="navbar__logo">
         <ul class="navbar__menu">
             <li>
                 <a href="#" class="navbar__link">XM Homepage</a>

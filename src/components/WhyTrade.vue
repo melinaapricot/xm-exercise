@@ -27,25 +27,25 @@ const cardContent = [
     {
         title: 'Superior Trade Execution',
         text: '<b>99%</b> of trades are executed in <b>less than a second</b>, with no requotes or rejections.',
-        iconSrc: '/src/assets/img/fast-execusion-icon.png',
+        iconSrc: '../../public/img/fast-execusion-icon.png',
         iconAlt:'Fast execution symbolic icon',
     },
     {
         title: 'Competitive Pricing',
         text: 'We offer some of the <b>lowest spreads</b>  and we don’t charge commissions.',
-        iconSrc: '/src/assets/img/competitive-pricing-icon.png',
+        iconSrc: '../../public/img/competitive-pricing-icon.png',
         iconAlt:'Competitive pricing symbolic icon',
     },
     {
         title: 'Advanced Technology',
         text: 'Trade on <b>MT4</b> or <b>MT5</b> , with expert tools, across desktop, web and mobile',
-        iconSrc: '/src/assets/img/tech-icon.png',
+        iconSrc: '../../public/img/tech-icon.png',
         iconAlt:'Advanced technology symbolic icon',
     },
     {
         title: 'Start with $5',
         text: 'Start trading your preferred instruments with as little as a <b>$5 minimum deposit.</b>',
-        iconSrc: '/src/assets/img/dollar-icon.png',
+        iconSrc: '../../public/img/dollar-icon.png',
         iconAlt:'Dollar icon',
     }
 ]
