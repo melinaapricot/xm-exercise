@@ -5,7 +5,6 @@
     <Cryptos />
     <WhyTrade />
     <Register />
-    <footer>Footer</footer>
 </template>
 
 <script setup lang="ts">
