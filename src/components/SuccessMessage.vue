@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 22px 22px;
+    padding: 30px 0;
     margin-bottom: 39px;
 
     img {
@@ -34,6 +34,7 @@
         display: flex;
         gap: 14px;
         align-items: center;
+        margin: 0 22px;
     }
 
     &__title {
@@ -44,6 +45,8 @@
     &__msg {
         font-size: var(  --font-size-small);
         display: flex;
+        margin: 0 22px;
+
         svg {
             margin: 4px 8px 0 0;
         }
