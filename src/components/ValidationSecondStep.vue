@@ -1,7 +1,7 @@
 
 <template>
     <form class="form" @submit.prevent="submitForm">
-        <Stepper :can-continue="canContinue" :active="v$.$anyDirty" :step="2"/>
+        <Stepper v-if="!formSubmitted" :can-continue="canContinue" :active="v$.$anyDirty" :step="'2'"/>
         <div v-if="!formSubmitted">
             <BaseInput v-model="formDataStep2.eMail" :valid-state="v$.eMail.$dirty && (v$.eMail.$errors.length <= 0)" :error-state="v$.eMail.$dirty && (v$.eMail.$errors.length > 0)" input-type="email" label="Email" @update:modelValue="v$.eMail.$validate"/>
             <span class="form__error" v-for="error in v$.eMail.$errors" :key="error.$uid">{{ error.$message }}</span>
