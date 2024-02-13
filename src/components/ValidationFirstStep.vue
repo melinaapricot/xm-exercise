@@ -1,14 +1,14 @@
 <template>
-    <form class="registration-form" @submit.prevent="submitStepOne">
-        <Stepper :can-continue="canContinue" :active="v$.$anyDirty"/>
+    <form class="form" @submit.prevent="submitStepOne">
+        <Stepper :can-continue="canContinue" :active="v$.$anyDirty" :step="'1'"/>
     <div>
         <BaseInput v-model="formDataStep1.fullName" :valid-state="v$.fullName.$dirty && (v$.fullName.$errors.length <= 0)" :error-state="v$.fullName.$dirty && (v$.fullName.$errors.length > 0)" input-type="text" label="Full Name" @update:modelValue="v$.fullName.$validate"/>
-        <span class="registration-form__error" v-for="error in v$.fullName.$errors" :key="error.$uid">{{ error.$message }}</span>
+        <span class="form__error" v-for="error in v$.fullName.$errors" :key="error.$uid">{{ error.$message }}</span>
 
-        <BaseInput v-model="formDataStep1.age" :valid-state="v$.age.$dirty && (v$.age.$errors.length <= 0)" input-type="date" label="Age" @update:modelValue="v$.age.$validate"/>
+        <BaseInput v-model="formDataStep1.age" :valid-state="v$.age.$dirty && (v$.age.$errors.length <= 0)" input-type="date" label="Date of Birth" @update:modelValue="v$.age.$validate"/>
         <span v-for="error in v$.age.$errors" :key="error.$uid">{{ error.$message }}</span>
 
-        <button class="registration-form__btn" input-type="submit" :disabled="!canContinue">CONTINUE</button>
+        <button class="form__btn" input-type="submit" :disabled="!canContinue">CONTINUE</button>
     </div>
 </form>
 </template>
@@ -74,14 +74,14 @@ watch(formDataStep1, () => {
 </script>
 
 <style scoped lang="scss">
-.registration-form {
+.form {
     text-align: left;
     &__error {
         color:var(--color-red);
     }
     &__btn {
         margin-top: 30px;
-        width: 290px;
+        width: 100%;
         text-decoration: none;
         border: none;
         height: 40px;
@@ -98,25 +98,25 @@ watch(formDataStep1, () => {
     &__stepper {
         display: flex;
 
-        .registration-form__half1, .registration-form__half2 {
+        .form__half1, .form__half2 {
             width: 50%;
             height: 5px;
             background-color: #ddd;
         }
-        .registration-form__half1,  {
+        .form__half1,  {
             height: 5px;
         }
         &.active {
-            .registration-form__half1 {
+            .form__half1 {
                 background-color: var(--primary-green);
             }
         }
 
         &.complete {
-            .registration-form__half1 {
+            .form__half1 {
                 background-color: var(--primary-green);
             }
-            .registration-form__half2 {
+            .form__half2 {
                 background-color: var(--primary-green);
             }
         }

@@ -1,4 +1,5 @@
 <template>
+    <img :src="getImageSrc" alt="Stepper Count">
     <div :class="{'stepper': true, 'active': active, 'complete': canContinue }">
         <span class="stepper__half1"></span>
         <span class="stepper__half2"></span>
@@ -6,16 +7,29 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onMounted } from 'vue';
+
 
 interface Props {
     canContinue: boolean,
     active: boolean,
+    step: '1' | '2';
 }
 
-withDefaults(defineProps<Props>(), {
+const props = withDefaults(defineProps<Props>(), {
     canContinue: false,
     active: false,
+    step: '1',
 });
+
+const color = computed(() => {
+    return props.active || props.canContinue ? 'green' : 'gray'
+})
+
+const getImageSrc = computed(() =>  {
+   return new URL(`../assets/img/${props.step}${color.value}.svg`, import.meta.url).href;
+});
+
 </script>
 
 <style scoped lang="scss">

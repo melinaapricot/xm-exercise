@@ -1,15 +1,15 @@
 
 <template>
-    <form class="registration-form" @submit.prevent="submitForm">
-        <Stepper :can-continue="canContinue" :active="v$.$anyDirty"/>
+    <form class="form" @submit.prevent="submitForm">
+        <Stepper :can-continue="canContinue" :active="v$.$anyDirty" :step="2"/>
         <div v-if="!formSubmitted">
             <BaseInput v-model="formDataStep2.eMail" :valid-state="v$.eMail.$dirty && (v$.eMail.$errors.length <= 0)" :error-state="v$.eMail.$dirty && (v$.eMail.$errors.length > 0)" input-type="email" label="Email" @update:modelValue="v$.eMail.$validate"/>
-            <span class="registration-form__error" v-for="error in v$.eMail.$errors" :key="error.$uid">{{ error.$message }}</span>
+            <span class="form__error" v-for="error in v$.eMail.$errors" :key="error.$uid">{{ error.$message }}</span>
 
             <BaseInput v-model="formDataStep2.password" :valid-state="v$.password.$dirty && (v$.password.$errors.length <= 0)" :error-state="v$.password.$dirty && (v$.password.$errors.length > 0)" input-type="password" label="Password" @update:modelValue="v$.password.$validate"></BaseInput>
-            <span class="registration-form__error" v-for="error in v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
+            <span class="form__error" v-for="error in v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
 
-            <button class="registration-form__btn" type="submit" :disabled="!canContinue">REGISTER NOW</button>
+            <button class="form__btn" type="submit" :disabled="!canContinue">REGISTER NOW</button>
         </div>
     </form>
     <div v-if="formSubmitted">
@@ -88,7 +88,7 @@ const submitForm = async () => {
 </script>
 
 <style scoped lang="scss">
-.registration-form {
+.form {
     text-align: left;
     &__error {
         color: var(--color-red);
@@ -98,6 +98,7 @@ const submitForm = async () => {
 
     &__btn {
         margin-top: 30px;
+        width: 100%;
         width: 290px;
         text-decoration: none;
         border: none;

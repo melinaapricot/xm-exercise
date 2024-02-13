@@ -35,11 +35,13 @@ withDefaults(defineProps<Props>(), {
 .input {
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 
     &__field {
         height: 40px;
         background: #f7f7f7;
         width: 100%;
+        box-sizing: border-box;
         border: 2px solid #A9A9A9;
         
         &.valid {
