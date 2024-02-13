@@ -1,13 +1,16 @@
-<template>
-    <img :src="getImageSrc" alt="Stepper Count">
-    <div :class="{'stepper': true, 'active': active, 'complete': canContinue }">
+<template class="stepper">
+    <div class="stepper__header">
+        <img class="stepper__icon" :src="getImageSrc" alt="Stepper Count">
+        <p class="stepper__step-number">Step {{ step }}</p>
+    </div>
+    <div :class="{'stepper__bar': true, 'active': active, 'complete': canContinue }">
         <span class="stepper__half1"></span>
         <span class="stepper__half2"></span>
     </div>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { computed } from 'vue';
 
 
 interface Props {
@@ -34,11 +37,11 @@ const getImageSrc = computed(() =>  {
 
 <style scoped lang="scss">
 
-.stepper {
+.stepper__bar {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 27px;
 
-    &__half1, &__half2 {
+    .stepper__half1, .stepper__half2 {
         width: 50%;
         height: 5px;
         background-color: #ddd;
@@ -56,5 +59,22 @@ const getImageSrc = computed(() =>  {
             background-color: var(--primary-green);
         }
     }
+}
+.stepper__header {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.stepper__icon {
+    width: 23px;
+
+    @media (min-width: 768px) {
+        width: 32px;
+    }
+}
+
+.stepper__step-number {
+    font-size: 15px;
+    font-weight: var(--font-weight-extra-bold);
 }
 </style>

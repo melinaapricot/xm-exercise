@@ -99,7 +99,6 @@ const submitForm = async () => {
     &__btn {
         margin-top: 30px;
         width: 100%;
-        width: 290px;
         text-decoration: none;
         border: none;
         height: 40px;

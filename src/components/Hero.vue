@@ -10,7 +10,7 @@
             </div>
             <button class="hero__button">OPEN ACCOUNT</button>
             <p class="hero__demo">New to trading? Try a <a href="#">Demo account</a>.</p>
-            <span class="hero__disclaimer">Terms and Conditions apply<small>*</small>. To read the full T&Cs,  <a class="hero__red-link">click here</a>.</span>
+            <span class="hero__disclaimer">Terms and Conditions apply<small>*</small>. To read the full T&Cs,  <a href="#" class="hero__red-link">click here</a>.</span>
         </div>
     </section>
 </template>
