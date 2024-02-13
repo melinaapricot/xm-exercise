@@ -11,7 +11,6 @@
                 <FontAwesomeIcon class="widget__arrow" v-if="isNegativePercent" icon="fa-circle-chevron-down" />
                 <FontAwesomeIcon class="widget__arrow" v-else icon="fa-circle-chevron-up" />
                 {{ currencyData.percent_change_24h }}%
-
             </span>
         </div>
     </div>

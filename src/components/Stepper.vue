@@ -62,6 +62,7 @@ const getImageSrc = computed(() =>  {
 }
 .stepper__header {
     display: flex;
+    align-items: center;
     gap: 12px;
     margin-bottom: 24px;
 }

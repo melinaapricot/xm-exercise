@@ -1,7 +1,8 @@
 <template>
     <div class="registration-form">
         <ValidationFirstStep v-if="!firstStepComplete" @StepOne:StepComplete="firstStepComplete = true"/>
-        <ValidationSecondStep v-if="firstStepComplete"/>
+        <ValidationSecondStep v-if="firstStepComplete" @StepTwo:StepComplete="success = true"/>
+        <SuccessMessage v-if="success"/>
         <p class="registration-form__create-account">Don’t have an account? <a href="#">Create one here</a> and register for the event</p>
         <p class="registration-form__disclaimer">Terms and Conditions apply*. To read the full T&Cs,  <a href="#" class="hero__red-link">click here.</a></p>
     </div>
@@ -11,12 +12,11 @@
 import { ref } from 'vue';
 import ValidationFirstStep from './ValidationFirstStep.vue';
 import ValidationSecondStep from './ValidationSecondStep.vue';
-import { useMediaQuery } from '@vueuse/core';
+import SuccessMessage from './SuccessMessage.vue';
 
 const firstStepComplete = ref(false);
 
-
-const isTablet = useMediaQuery('(min-width: 768px)')
+const success = ref(false)
 
 </script>
 <style scoped lang="scss">

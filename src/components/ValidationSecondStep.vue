@@ -1,21 +1,55 @@
 
 <template>
     <form class="form" @submit.prevent="submitForm">
-        <Stepper v-if="!formSubmitted" :can-continue="canContinue" :active="v$.$anyDirty" :step="'2'"/>
+        <Stepper v-if="!formSubmitted" 
+            :can-continue="canContinue" 
+            :active="v$.$anyDirty" 
+            :step="'2'"
+        />
         <div v-if="!formSubmitted">
-            <BaseInput v-model="formDataStep2.eMail" :valid-state="v$.eMail.$dirty && (v$.eMail.$errors.length <= 0)" :error-state="v$.eMail.$dirty && (v$.eMail.$errors.length > 0)" input-type="email" label="Email" @update:modelValue="v$.eMail.$validate"/>
-            <span class="form__error" v-for="error in v$.eMail.$errors" :key="error.$uid">{{ error.$message }}</span>
+            <BaseInput 
+                v-model="formDataStep2.eMail" 
+                :valid-state="v$.eMail.$dirty && (v$.eMail.$errors.length <= 0)" 
+                :error-state="v$.eMail.$dirty && (v$.eMail.$errors.length > 0)" 
+                input-type="email" label="Email" 
+                @update:modelValue="v$.eMail.$validate"
+            />
+            <div class="form__error" 
+                v-for="error in v$.eMail.$errors" 
+                :key="error.$uid"
+            >
+                    <span class="form__error-msg">
+                        <img :src="errorIcon" alt="error icon" /> 
+                        <p>{{ error.$message }}</p>
+                    </span>
+            </div>
 
-            <BaseInput v-model="formDataStep2.password" :valid-state="v$.password.$dirty && (v$.password.$errors.length <= 0)" :error-state="v$.password.$dirty && (v$.password.$errors.length > 0)" input-type="password" label="Password" @update:modelValue="v$.password.$validate"></BaseInput>
-            <span class="form__error" v-for="error in v$.password.$errors" :key="error.$uid">{{ error.$message }}</span>
-
-            <button class="form__btn" type="submit" :disabled="!canContinue">REGISTER NOW</button>
+            <BaseInput 
+                v-model="formDataStep2.password" 
+                :valid-state="v$.password.$dirty && (v$.password.$errors.length <= 0)" 
+                :error-state="v$.password.$dirty && (v$.password.$errors.length > 0)" 
+                input-type="password" label="Password" 
+                @update:modelValue="v$.password.$validate" 
+            />
+            <div 
+                class="form__error" 
+                v-for="error in v$.password.$errors" 
+                :key="error.$uid"
+            >
+                <span class="form__error-msg">
+                    <img :src="errorIcon" alt="error icon" />
+                    <p>{{ error.$message }}</p>
+                </span>
+            </div>
+            <button 
+                class="form__btn" 
+                type="submit" 
+                :disabled="!canContinue"
+            >
+                REGISTER NOW
+            </button>
         </div>
     </form>
-    <div v-if="formSubmitted">
-        <h3>Registration Successful</h3>
-        <p>Thank you for registering for our event with XM. You will receive an email shortly with confirmation of your registration.</p>
-    </div>
 </template>
 
 <script setup lang="ts">
@@ -25,9 +59,9 @@ import useVuelidate from '@vuelidate/core';
 import { required, email, minLength, maxLength, helpers } from '@vuelidate/validators';
 import { reactive, ref, computed, watch } from 'vue';
 
-
-
 const emit = defineEmits(['StepTwo:StepComplete'])
+
+const errorIcon = new URL(`../assets/img/error-dot.svg`, import.meta.url).href;
 
 const canContinue = ref(false);
 
@@ -53,7 +87,6 @@ const passwordValidator = {
     }),
 }
 
-
 const rules = computed(() => {
     return {
         eMail: {email, required},
@@ -63,8 +96,10 @@ const rules = computed(() => {
             maxLength: maxLength(15),
             ...passwordValidator
         },
+
     }
 })
+
 const v$ = useVuelidate(rules, formDataStep2);
 
 watch(formDataStep2, () => {
@@ -94,6 +129,15 @@ const submitForm = async () => {
         color: var(--color-red);
         display: flex;
         flex-direction: column;
+
+        img {
+            margin-right: 10px;
+            width: 9px;
+        }
+    }
+
+    &__error-msg {
+        display: flex;
     }
 
     &__btn {
